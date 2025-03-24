@@ -26,14 +26,22 @@
 		height: 50px;
 		vertical-align: middle;
 	}
+	.outer {
+		text-align: center;
+	}
+	.outer table tr {
+		text-align: left;
+		height: 30px;
+	}
 </style>
 </head>
 <body>
 	<h1 align="center">Welcome to MyBatis World</h1>
+	
 	<div class="login-area" align="right">
 		<c:choose>
 			<c:when test="${ empty loginUser }">
-				<form action="Login.me" method="post">
+				<form action="login.me" method="post">
 					<table>
 						<tr>
 							<td>아이디</td>
@@ -46,7 +54,7 @@
 						</tr>
 						<tr>
 							<td colspan="3" align="center">
-								<a href="">회원가입</a>
+								<a href="enrollForm.me">회원가입</a>
 								<a href="">아이디/비번찾기</a>
 							</td>
 						</tr>
@@ -54,23 +62,26 @@
 				</form>
 			</c:when>
 			<c:otherwise>
+				<!-- 로그인 후 -->
 				<table>
 					<tr>
-						<td colspan="2"><b class="loginInfo">${sessionScope.loginUser.userName}님 환영합니다</b></td>
+						<td colspan="2"><b class="loginInfo">${ loginUser.userName }님 환영합니다</b></td>
 					</tr>
 					<tr>
 						<td><a href="">마이페이지</a></td>
-						<td><a href="Logout.me">로그아웃</a></td>
+						<td><a href="logout.me">로그아웃</a></td>
 					</tr>
 				</table>
 			</c:otherwise>
 		</c:choose>
 	</div>
+	
 	<br>
+	
 	<div class="nav-area" align="center">
 		<div class="menu">HOME</div>
 		<div class="menu">공지사항</div>
-		<div class="menu" onclick="">게시판</div>
+		<div class="menu" onclick="location.href='list.bo?nowPage=1'">게시판</div>
 		<div class="menu">ETC</div>
 	</div>
 </body>
