@@ -35,4 +35,5 @@ public class MemberServiceImpl implements MemberService {
 		sqlSession.close();
 		return result;
 	}
+
 }

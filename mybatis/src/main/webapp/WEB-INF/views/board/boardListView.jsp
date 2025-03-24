@@ -15,7 +15,7 @@
 		border: 1px solid;
 	}
 	.outer a {
-		text-decration: none;
+		text-decoration: none;
 		color : black;
 	}
 </style>
@@ -43,7 +43,7 @@
 				<c:forEach var="b" items="${ list }">
 					<tr>
 						<td>${ b.boardNo }</td>
-						<td><a href="detail.bo?bno=${b.boardNo}">${ b.boardTitle }</td>
+						<td><a href="detail.bo?bno=${ b.boardNo }">${ b.boardTitle }</a></td>
 						<td>${ b.boardWriter }</td>
 						<td>${ b.count }</td>
 						<td>${ b.createDate }</td>
@@ -53,17 +53,16 @@
 		</table>
 		
 		<div id="paging-area">
-			<c:if test="${pi.nowPage != 1}">
-				<a href="list.bo?nowPage=${pi.nowPage-1}">[이전]</a>
+			<c:if test="${ pi.nowPage ne 1 }">
+				<a href="list.bo?nowPage=${ pi.nowPage-1 }">[이전]</a>
 			</c:if>
 			
-			<c:forEach var="p" begin="${pi.startPage}" end="${pi.endPage}">
+			<c:forEach var="p" begin="${ pi.startPage }" end="${ pi.endPage }">
 				<a href="list.bo?nowPage=${p}">[${p}]</a>
-			
 			</c:forEach>
 			
-			<c:if test="${pi.nowPage != totalPage}">
-				<a href="list.bo?nowPage=${pi.nowPage+1}">[다음]</a>
+			<c:if test="${ pi.nowPage ne totalPage }">
+				<a href="list.bo?nowPage=${ pi.nowPage+1 }">[다음]</a>
 			</c:if>
 		</div>
 	</div>

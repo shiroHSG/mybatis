@@ -22,17 +22,16 @@ public class MemberInsertServlet extends HttpServlet {
 		m.setBirthday(request.getParameter("birthday"));
 		m.setGender(request.getParameter("gender"));
 		m.setPhone(request.getParameter("phone"));
-		m.setAddress(request.getParameter("adress"));
+		m.setAddress(request.getParameter("address"));
 		
 		int result = new MemberServiceImpl().insertMember(m);
 		
 		if(result > 0) {
 			response.sendRedirect(request.getContextPath());
-		}
-		else {
+		} else {
 			request.setAttribute("errorMsg", "회원가입 실패");
-			request.getRequestDispatcher("WEb_INF/view/common/errorPage.jsp").forward(request, response);
+			request.getRequestDispatcher("WEB-INF/views/common/errorPage.jsp").forward(request, response);
 		}
-	}
 
+	}
 }
